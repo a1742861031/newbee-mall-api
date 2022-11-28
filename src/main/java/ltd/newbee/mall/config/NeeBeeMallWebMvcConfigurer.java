@@ -32,11 +32,13 @@ public class NeeBeeMallWebMvcConfigurer extends WebMvcConfigurationSupport {
      * @param argumentResolvers
      * @tip @TokenToMallUser @TokenToAdminUser 注解处理方法
      */
+    @Override
     public void addArgumentResolvers(List<HandlerMethodArgumentResolver> argumentResolvers) {
         argumentResolvers.add(tokenToMallUserMethodArgumentResolver);
         argumentResolvers.add(tokenToAdminUserMethodArgumentResolver);
     }
 
+    @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/upload/**").addResourceLocations("file:" + Constants.FILE_UPLOAD_DIC);
         registry.addResourceHandler("/goods-img/**").addResourceLocations("file:" + Constants.FILE_UPLOAD_DIC);
